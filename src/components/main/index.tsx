@@ -1,5 +1,6 @@
 import { Sidebar } from "../sidebar"
 import { Video } from "../video"
+import './styles.scss'
 
 export const Main = () => {
   return (

@@ -2,4 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-section {}
+section {
+  @apply flex-1
+}
