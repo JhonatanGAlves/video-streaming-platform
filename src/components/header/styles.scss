@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+header {
+  @apply w-full flex gap-2 justify-center items-center py-5 bg-gray-700 text-gray-0 border-b border-gray-600;
+
+  span {
+    @apply text-xl font-bold capitalize
+  }
+
+  p {
+    @apply text-sm font-medium text-gray-200 uppercase
+  }
+
+  .divider {
+    width: 5px;
+    height: 2rem;
+    border-radius: 3px;
+
+    background: #E44611;
+  }
+}
