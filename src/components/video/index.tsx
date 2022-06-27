@@ -1,4 +1,5 @@
-import { CaretRight, DiscordLogo, FileArrowDown, Lightning } from 'phosphor-react'
+import { CaretRight, DiscordLogo, FileArrowDown, Image, Lightning } from 'phosphor-react'
+import { Footer } from '../footer'
 import './styles.scss'
 
 export const Video = () => {
@@ -52,7 +53,7 @@ export const Video = () => {
           </a>
           <a href="">
             <div className="material-icon">
-              <FileArrowDown size={40} />
+              <Image size={40} />
             </div>
             <div className="material-txt">
               <strong>Wallpapers exclusivos</strong>
@@ -64,6 +65,7 @@ export const Video = () => {
           </a>
         </div>
       </div>
+      <Footer />
     </section>
   )
 }
