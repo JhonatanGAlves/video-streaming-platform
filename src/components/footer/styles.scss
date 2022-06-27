@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+footer {
+  @apply flex justify-between items-center mx-6 mt-20 border-t border-gray-500;
+
+  .content-logo-copy {
+    @apply flex items-center gap-6 my-6;
+
+    .footer-logo {
+      @apply flex items-center gap-2 text-gray-100;
+
+      span {
+        @apply text-xl font-bold uppercase;
+      }
+    }
+
+    small {
+      @apply text-base text-gray-300;
+    }
+  }
+
+  p {
+    @apply text-base text-gray-300;
+  }
+}
