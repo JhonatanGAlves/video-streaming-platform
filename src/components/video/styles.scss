@@ -3,5 +3,105 @@
 @tailwind utilities;
 
 section {
-  @apply flex-1
+  @apply flex-1;
+
+  .video-bg {
+    @apply bg-black flex justify-center;
+
+    video {
+      @apply h-full w-full max-w-[1100px] max-h-[60vh] aspect-video;
+    }
+  }
+
+  div.content-video {
+    @apply p-8 max-w-[1100px] mx-auto;
+
+    .video-description-btn {
+      @apply flex items-start gap-16;
+
+      .video-description {
+        @apply flex-1;
+
+        h1 {
+          @apply text-2xl font-bold;
+        }
+
+        p {
+          @apply mt-4 text-gray-200 leading-relaxed;
+        }
+
+        .video-teacher-avatar {
+          @apply flex items-center gap-4 mt-6;
+
+          img {
+            @apply h-16 w-16 rounded-full border-2 border-blue-500;
+          }
+
+          .teacher-name {
+            @apply leading-relaxed;
+
+            strong {
+              @apply text-2xl block
+            }
+
+            span {
+              @apply text-gray-200 text-sm block
+            }
+          }
+        }
+      }
+
+      .video-btn {
+        @apply flex flex-col gap-4;
+
+        a:first-child {
+          @apply p-4 text-sm bg-orange-500 flex justify-center items-center rounded font-bold uppercase gap-2;
+
+          &:hover {
+            @apply bg-orange-700 transition-colors;
+          }
+        }
+
+        a:last-child {
+          @apply p-4 text-sm border border-blue-500 text-blue-500 flex justify-center items-center rounded font-bold uppercase gap-2;
+
+          &:hover {
+            @apply bg-blue-500 text-gray-900 transition-colors;
+          }
+        }
+      }
+    }
+
+    .video-materials {
+      @apply gap-8 mt-20 grid grid-cols-2;
+
+      a {
+        @apply bg-gray-700 rounded overflow-hidden flex items-stretch gap-6;
+
+        &:hover {
+          @apply bg-gray-600 transition-colors;
+        }
+      }
+
+      .material-icon {
+        @apply bg-orange-700 h-full p-6 flex items-center;
+      }
+
+      .material-txt {
+        @apply py-6 leading-relaxed;
+
+        strong {
+          @apply text-2xl;
+        }
+
+        p {
+          @apply text-sm text-gray-200 mt-2;
+        }
+      }
+
+      .material-arrow-icon {
+        @apply h-full p-6 flex items-center;
+      }
+    }
+  }
 }
