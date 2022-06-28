@@ -1,16 +1,63 @@
 import { DefaultUi, Player, Youtube } from '@vime/react'
+import { gql, useQuery } from '@apollo/client'
 import { CaretRight, DiscordLogo, FileArrowDown, Image, Lightning } from 'phosphor-react'
 import { Footer } from '../footer'
 import './styles.scss'
 import '@vime/core/themes/default.css'
 
-export const Video = () => {
+const GET_LESSON_BY_SLUG_QUERY = gql`
+  query GetLessonBySlug($slug: String) {
+    lesson(where: {slug: $slug}) {
+      title
+      videoId
+      description
+      teacher {
+        bio
+        avatarURL
+        name
+      }
+    }
+  }  
+`
+
+interface GetLessonBySlugResponse {
+  lesson: {
+    title: string
+    videoId: string
+    description: string
+    teacher: {
+      bio: string
+      avatarURL: string
+      name: string
+    }
+  }
+}
+
+interface VideoProps {
+  lessonSlug: string
+}
+
+export const Video = ({ lessonSlug }: VideoProps) => {
+  const { data } = useQuery<GetLessonBySlugResponse>(GET_LESSON_BY_SLUG_QUERY, {
+    variables: {
+      slug: lessonSlug,
+    }
+  })
+
+  if (!data) {
+    return (
+      <section>
+        <p>Carregando...</p>
+      </section>
+    )
+  }
+
   return (
     <section>
       <div className="video-bg">
         <div className="video">
           <Player>
-            <Youtube videoId="SO4-izct7Mc" />
+            <Youtube videoId={data.lesson.videoId} />
             <DefaultUi />
           </Player>
         </div>
@@ -19,16 +66,13 @@ export const Video = () => {
       <div className="content-video">
         <div className="video-description-btn">
           <div className="video-description">
-            <h1>Aula 01 - Abertura do Ignite Lab</h1>
-            <p>
-              Chegamos na metade do nosso evento, mas ainda tem mais pela frente…Na terceira aula vamos continuar nosso projeto, desenvolvendo o roteamento e player. Essa é mais uma etapa para sua especialização em React!
-            </p>
-
+            <h1>{data.lesson.title}</h1>
+            <p>{data.lesson.description}</p>
             <div className="video-teacher-avatar">
-              <img src="https://github.com/JhonatanGAlves.png" alt="Avatar professor" />
+              <img src={data.lesson.teacher.avatarURL} alt="Avatar professor" />
 
               <div className="teacher-name">
-                <strong>Jhonatan Alves</strong>
+                <strong>{data.lesson.teacher.name}</strong>
                 <span>Frontend Developer</span>
               </div>
             </div>
