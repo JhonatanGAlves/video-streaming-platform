@@ -3,5 +3,9 @@
 @tailwind utilities;
 
 main {
-  @apply flex flex-1
+  @apply flex flex-1;
+
+  .no-video {
+    @apply flex-1;
+  }
 }

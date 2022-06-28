@@ -6,6 +6,7 @@ export const Router = () => {
     <Routes>
       <Route path="/" element={<div>Login</div>} />
       <Route path="/event" element={<Home />} />
+      <Route path="/event/lesson/:slug" element={<Home />} />
     </Routes>
   )
 }
