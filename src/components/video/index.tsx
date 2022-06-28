@@ -1,12 +1,19 @@
+import { DefaultUi, Player, Youtube } from '@vime/react'
 import { CaretRight, DiscordLogo, FileArrowDown, Image, Lightning } from 'phosphor-react'
 import { Footer } from '../footer'
 import './styles.scss'
+import '@vime/core/themes/default.css'
 
 export const Video = () => {
   return (
     <section>
       <div className="video-bg">
-        <video className="video"></video>
+        <div className="video">
+          <Player>
+            <Youtube videoId="SO4-izct7Mc" />
+            <DefaultUi />
+          </Player>
+        </div>
       </div>
 
       <div className="content-video">

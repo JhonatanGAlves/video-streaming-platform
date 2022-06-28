@@ -8,7 +8,7 @@ section {
   .video-bg {
     @apply bg-black flex justify-center;
 
-    video {
+    .video {
       @apply h-full w-full max-w-[1100px] max-h-[60vh] aspect-video;
     }
   }
